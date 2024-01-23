@@ -15,8 +15,11 @@ import java.time.format.DateTimeFormatter
 /**
  * ImageButton
  * RadioGroup - RadioButton
- * Spinner
+ * Spinner - Adapter
  * CheckBox
+ * Layer
+ * style
+ * with
  * */
 
 /**

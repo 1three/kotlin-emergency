@@ -41,7 +41,7 @@ class MainActivity : AppCompatActivity() {
             deleteUserInformation()
         }
 
-        binding.emergencyContactLayer.setOnClickListener {
+        binding.callButton.setOnClickListener {
             // 암시적 intent "전화 관련 앱 실행해"
             with(Intent(Intent.ACTION_VIEW)) {
                 val phoneNumber = binding.userEmergencyContact.text.toString().replace("-", "")
@@ -61,8 +61,10 @@ class MainActivity : AppCompatActivity() {
             binding.userName.text = getString(NAME, getString(R.string.undefined))
             binding.userBirth.text = getString(BIRTH, getString(R.string.undefined))
             binding.userBloodType.text = getString(BLOOD_TYPE, getString(R.string.undefined))
-            binding.userEmergencyContact.text =
-                getString(EMERGENCY_CONTACT, getString(R.string.undefined))
+
+            val emergencyContact = getString(EMERGENCY_CONTACT, getString(R.string.undefined))
+            binding.callButton.isVisible = emergencyContact != "미정"
+            binding.userEmergencyContact.text = emergencyContact
 
             val caution = getString(CAUTION, "")
             val isCautionVisible = caution.isNullOrEmpty().not()
