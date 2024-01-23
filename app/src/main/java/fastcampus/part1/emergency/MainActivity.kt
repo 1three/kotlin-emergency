@@ -1,8 +1,12 @@
 package fastcampus.part1.emergency
 
+import android.content.Context
 import android.content.Intent
+import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.Toast
+import androidx.core.view.isVisible
 import fastcampus.part1.emergency.databinding.ActivityMainBinding
 
 /**
@@ -27,11 +31,53 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        val goInputActivityButton = binding.goInputActivityButton
-        goInputActivityButton.setOnClickListener {
+        binding.goInputActivityButton.setOnClickListener {
+            // 명시적 intent "InputActivity 실행해"
             val intent = Intent(this, InputActivity::class.java)
-            // intent.putExtra("message", "메시지")
             startActivity(intent)
         }
+
+        binding.deleteButton.setOnClickListener {
+            deleteUserInformation()
+        }
+
+        binding.emergencyContactLayer.setOnClickListener {
+            // 암시적 intent "전화 관련 앱 실행해"
+            with(Intent(Intent.ACTION_VIEW)) {
+                val phoneNumber = binding.userEmergencyContact.text.toString().replace("-", "")
+                data = Uri.parse("tel:$phoneNumber")
+                startActivity(this)
+            }
+        }
+    }
+
+    override fun onResume() {
+        super.onResume()
+        getUserInformation()
+    }
+
+    private fun getUserInformation() {
+        with(getSharedPreferences(USER_INFORMATION, Context.MODE_PRIVATE)) {
+            binding.userName.text = getString(NAME, getString(R.string.undefined))
+            binding.userBirth.text = getString(BIRTH, getString(R.string.undefined))
+            binding.userBloodType.text = getString(BLOOD_TYPE, getString(R.string.undefined))
+            binding.userEmergencyContact.text =
+                getString(EMERGENCY_CONTACT, getString(R.string.undefined))
+
+            val caution = getString(CAUTION, "")
+            val isCautionVisible = caution.isNullOrEmpty().not()
+            binding.caution.isVisible = isCautionVisible
+            binding.userCaution.isVisible = isCautionVisible
+            binding.userCaution.text = caution
+        }
+    }
+
+    private fun deleteUserInformation() {
+        with(getSharedPreferences(USER_INFORMATION, Context.MODE_PRIVATE).edit()) {
+            clear()
+            apply()
+        }
+        Toast.makeText(this, R.string.userInfo_reset, Toast.LENGTH_SHORT).show()
+        getUserInformation()
     }
 }

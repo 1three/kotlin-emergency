@@ -17,4 +17,6 @@
     <string name="rhPlus">Rh+</string>
     <string name="rhMinus">Rh-</string>
     <string name="isInputCaution">주의사항 작성</string>
+    <string name="userInfo_reset">사용자 정보가 초기화되었습니다.</string>
+    <string name="undefined">미정</string>
 </resources>
