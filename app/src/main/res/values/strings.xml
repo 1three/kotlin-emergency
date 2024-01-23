@@ -1,3 +1,20 @@
 <resources>
     <string name="app_name">emergency</string>
+    <string name="name">이름</string>
+    <string name="username_example">김한슬</string>
+    <string name="birth">생년월일</string>
+    <string name="bloodType">혈액형</string>
+    <string name="emergencyContact">비상 연락처</string>
+    <string name="caution">주의사항</string>
+    <string name="userBirth_example">1999-12-16</string>
+    <string name="userBloodType_example">Rh+ A</string>
+    <string name="userEmergencyContact_example">010-2847-7968</string>
+    <string name="userCaution_example">2024.01.18 (목) 사랑니 발치</string>
+    <string name="inputName">이름을 입력해주세요.</string>
+    <string name="inputContact">전화번호를 입력해주세요.</string>
+    <string name="inputCaution">주의사항을 입력해주세요.</string>
+    <string name="birth_example">0000-00-00</string>
+    <string name="rhPlus">Rh+</string>
+    <string name="rhMinus">Rh-</string>
+    <string name="isInputCaution">주의사항 작성</string>
 </resources>

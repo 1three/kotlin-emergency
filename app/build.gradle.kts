@@ -5,7 +5,7 @@ plugins {
 
 android {
     namespace = "fastcampus.part1.emergency"
-    compileSdk = 33
+    compileSdk = 34
 
     defaultConfig {
         applicationId = "fastcampus.part1.emergency"
@@ -32,6 +32,9 @@ android {
     }
     kotlinOptions {
         jvmTarget = "1.8"
+    }
+    viewBinding {
+        enable = true
     }
 }
 

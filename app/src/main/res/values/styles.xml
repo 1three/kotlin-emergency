@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="title" parent="Widget.AppCompat.TextView">
+        <item name="android:textColor">@color/purple</item>
+        <item name="android:textSize">18sp</item>
+        <item name="android:layout_marginTop">40dp</item>
+        <item name="android:textStyle">italic|bold</item>
+    </style>
+
+    <style name="value">
+        <item name="android:textColor">@color/darkGray</item>
+        <item name="android:textSize">15sp</item>
+        <item name="android:layout_marginStart">20dp</item>
+        <item name="android:layout_marginEnd">40dp</item>
+        <item name="android:gravity">end</item>
+        <item name="android:ellipsize">end</item>
+        <item name="android:maxLines">1</item>
+    </style>
+
+    <style name="cautionValue">
+        <item name="android:textColor">@color/darkGray</item>
+        <item name="android:textSize">15sp</item>
+        <item name="android:layout_marginTop">20dp</item>
+        <item name="android:layout_marginStart">20dp</item>
+        <item name="android:layout_marginEnd">40dp</item>
+        <item name="android:gravity">end</item>
+    </style>
+</resources>
